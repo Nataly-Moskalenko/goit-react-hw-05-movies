@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import apiService from 'services/apiService';
 
 export default function Home() {
@@ -7,7 +8,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchMovies() {
       try {
-        const data = await apiService();
+        const data = await apiService('/trending/movie/day');
         setMovies(data.results);
         console.log(data.results[1]);
       } catch (error) {
@@ -23,7 +24,9 @@ export default function Home() {
       <h1>Tranding today</h1>
       <ul>
         {movies.map(movie => (
-          <li key="{movie.id}">{movie.title}</li>
+          <li key={movie.id}>
+            <Link to={`${movie.id}`}>{movie.title}</Link>
+          </li>
         ))}
       </ul>
     </div>
