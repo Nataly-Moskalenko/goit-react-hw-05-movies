@@ -7,7 +7,9 @@ export default function Layout() {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/movies">Movies</NavLink>
       </nav>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 }

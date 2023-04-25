@@ -10,7 +10,7 @@ export default function Home() {
       try {
         const data = await apiService('/trending/movie/day');
         setMovies(data.results);
-        console.log(data.results[1]);
+        // console.log(data.results[1]);
       } catch (error) {
         console.log(error);
       }
@@ -25,7 +25,7 @@ export default function Home() {
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
-            <Link to={`${movie.id}`}>{movie.title}</Link>
+            <Link to={`movies/${movie.id}`}>{movie.title}</Link>
           </li>
         ))}
       </ul>
