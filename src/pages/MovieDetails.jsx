@@ -1,34 +1,34 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import apiService from 'services/apiService';
 import css from './MovieDetails.module.css';
+import { HiArrowLeft } from 'react-icons/hi';
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState({});
-  // const [poster, setPoster] = useState(null);
   const { movieId } = useParams();
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/'; 
 
   useEffect(() => {
     async function fetchMovie() {
       try {
         const data = await apiService(`/movie/${movieId}`);
-        setMovie(data);
-        // console.log(data);
+        setMovie(data);       
       } catch (error) {
         console.log(error);
       }
     }
 
     fetchMovie();
-  }, [movieId]);
-
-  // useEffect(() => {
-  //   setPoster(`https://image.tmdb.org/t/p/w185/${movie.poster_path}`);
-  // }, [movie]);
+  }, [movieId]);  
 
   return (
     <div>
-      <p>Go back</p>
+      <Link to={backLinkHref}>
+        <HiArrowLeft size="12" />
+        Go back
+      </Link>
       <div className={css.movie}>
         <img
           className={css.movie__img}
@@ -36,8 +36,7 @@ export default function MovieDetails() {
           alt={movie.title}
           width="185"
           height="278"
-        />
-        {/* <img src={poster} alt={movie.title} /> */}
+        />       
         <div className={css.movie__description}>
           <h1 className={css.movie__title}>{movie.title}</h1>
           <p>Release date: {movie.release_date}</p>
@@ -45,11 +44,11 @@ export default function MovieDetails() {
           <h2>Overview</h2>
           <p>{movie.overview}</p>
           <h2>Genres</h2>
-          {/* <p>
-            {movie.genres.map(genre => (
-              <p>{genre.name}</p>
+          <p>           
+            {movie.genres?.map(genre => (
+              <span key={genre.id}>{genre.name} </span>
             ))}
-          </p> */}
+          </p>          
         </div>
       </div>
       <h3>Additional information</h3>
