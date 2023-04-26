@@ -49,3 +49,5 @@ export default function Movies() {
     </div>
   );
 }
+
+// `/movies?query=${query}`

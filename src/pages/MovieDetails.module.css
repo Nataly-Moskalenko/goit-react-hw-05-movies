@@ -1,17 +1,15 @@
 .movie {
   display: flex;
   gap: 20px;
-  /* padding: 16px; */
 }
 
 .movie__img {
   align-self: center;
+  width: 185px;
+  height: 278px;
+  object-fit: cover;
 }
 
-/* .movie__title {
-  
+.add:first-child {
+  margin-bottom: 8px;
 }
-
-.movie__description {
-font-size: 16px;
-} */

@@ -1,0 +1,16 @@
+.cast {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.cast__item {
+  width: 220px;
+}
+
+.cast__img {  
+  width: 92px;
+  height: 138px;
+  fill: rgb(214, 212, 212);
+}
