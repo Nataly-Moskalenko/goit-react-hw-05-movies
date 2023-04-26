@@ -11,7 +11,7 @@ export default function Cast() {
       try {
         const data = await apiService(`/movie/${movieId}/credits`);
         setActors(data.cast);
-        console.log(data.cast);
+        // console.log(data.cast);
       } catch (error) {
         console.log(error);
       }
@@ -27,6 +27,8 @@ export default function Cast() {
           <img
             src={`https://image.tmdb.org/t/p/w92/${actor.profile_path}`}
             alt={actor.name}
+            width='92'
+            height='138'
           />
           <p>{actor.name}</p>
           <p>Character: {actor.character}</p>

@@ -11,7 +11,7 @@ export default function Reviews() {
       try {
         const data = await apiService(`/movie/${movieId}/reviews`);
         setReviews(data.results);
-        console.log(data.results);
+        // console.log(data.results);
       } catch (error) {
         console.log(error);
       }
@@ -21,13 +21,18 @@ export default function Reviews() {
   }, [movieId]);
 
   return (
-    <ul>
-      {reviews.map(review => (
-        <li key={review.id}>
-          <p>Author: {review.author}</p>
-          <p>{review.content}</p>
-        </li>
-      ))}
-    </ul>
+    <div>
+      {reviews.length > 0 && (
+        <ul>
+          {reviews.map(review => (
+            <li key={review.id}>
+              <p>Author: {review.author}</p>
+              <p>{review.content}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+      {reviews.length === 0 && <p>We don`t have any reviews for this movie.</p>}
+    </div>
   );
 }

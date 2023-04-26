@@ -31,12 +31,15 @@ export default function MovieDetails() {
       <p>Go back</p>
       <div className={css.movie}>
         <img
+          className={css.movie__img}
           src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}
           alt={movie.title}
+          width="185"
+          height="278"
         />
         {/* <img src={poster} alt={movie.title} /> */}
-        <div>
-          <h1>{movie.title}</h1>
+        <div className={css.movie__description}>
+          <h1 className={css.movie__title}>{movie.title}</h1>
           <p>Release date: {movie.release_date}</p>
           <p>User average: {movie.vote_average}</p>
           <h2>Overview</h2>
