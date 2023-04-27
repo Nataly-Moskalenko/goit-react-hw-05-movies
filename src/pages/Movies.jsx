@@ -39,7 +39,7 @@ export default function Movies() {
     <div className={css.movies}>
       <form onSubmit={handleSubmit}>
         <input type="text" name="query" className={css.input}/>
-        <button type="submit" className={css.button}>Search</button>
+        <button type="submit" className={css.searchButton}>Search</button>
       </form>
       {query !== '' && (
         <ul>

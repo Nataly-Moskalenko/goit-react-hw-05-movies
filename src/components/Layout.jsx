@@ -6,8 +6,8 @@ export default function Layout() {
   return (
     <div>
       <nav className={css.nav}>
-        <NavLink className={css.link} to="/">Home</NavLink>
-        <NavLink className={css.link} to="/movies">Movies</NavLink>
+        <NavLink className={(navData) => (navData.isActive ? css.active : css.link)} to="/">Home</NavLink>
+        <NavLink className={(navData) => (navData.isActive ? css.active : css.link)} to="/movies">Movies</NavLink>
       </nav>
       <main>
         <Suspense fallback={<div>Loading...</div>}>

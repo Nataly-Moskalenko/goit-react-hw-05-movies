@@ -1,10 +1,15 @@
 .nav {
-padding: 12px 16px;
-display: flex;
-gap: 12px;
-border-bottom: 3px solid rgba(128, 128, 128, 0.4); 
+  padding: 12px 16px;
+  display: flex;
+  gap: 12px;
+  border-bottom: 3px solid rgba(128, 128, 128, 0.4);
 }
 
 .active {
   color: orangered;
+  text-decoration: none;  
+}
+
+.link {
+  text-decoration: none;
 }
