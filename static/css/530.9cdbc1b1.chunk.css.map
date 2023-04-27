@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/530.9cdbc1b1.chunk.css","mappings":"AAAA,sBACE,iBACF,CAEA,2CAEE,YACF,CAEA,8DAEE,oBACF","sources":["pages/Movies.module.css"],"sourcesContent":[".movies {\n  padding: 12px 16px;\n}\n\n.input,\n.button {\n  outline: none;  \n}\n\n.input:focus,\n.input:focus-visible {\n  border-color: rgb(135, 135, 250);\n}"],"names":[],"sourceRoot":""}

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoit_react_hw_05_movies=self.webpackChunkgoit_react_hw_05_movies||[]).push([[991],{991:function(e,t,n){n.r(t),n.d(t,{default:function(){return r}});var i=n(885),s="NotFound_notFound__ltC5g",o=n(184);function r(){return(0,o.jsxs)("div",{className:s,children:[(0,o.jsx)("img",{src:i,alt:"Movie poster",width:"320"}),(0,o.jsx)("p",{children:"Oops, something went wrong. Please try again."})]})}},885:function(e,t,n){e.exports=n.p+"static/media/movie-597004_640.a5228f7d88bfe01b819f.jpg"}}]);
+//# sourceMappingURL=991.bc97f52b.chunk.js.map
