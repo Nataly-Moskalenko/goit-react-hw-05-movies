@@ -3,6 +3,8 @@
   flex-wrap: wrap;
   gap: 8px;
   list-style: none;
+  margin: 0;
+  padding: 12px;
 }
 
 .cast__item {

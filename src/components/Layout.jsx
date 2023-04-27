@@ -1,15 +1,18 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 import css from './Layout.module.css';
 
 export default function Layout() {
   return (
     <div>
       <nav className={css.nav}>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/movies">Movies</NavLink>
+        <NavLink className={css.link} to="/">Home</NavLink>
+        <NavLink className={css.link} to="/movies">Movies</NavLink>
       </nav>
       <main>
-        <Outlet />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </main>
     </div>
   );

@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
 import apiService from 'services/apiService';
+import css from './Movies.module.css';
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
-  const location = useLocation();  
+  const location = useLocation();
 
   useEffect(() => {
     if (query === '') {
@@ -15,7 +16,7 @@ export default function Movies() {
     async function fetchMovies() {
       try {
         const data = await apiService('/search/movie', `&query=${query}`);
-        setMovies(data.results);        
+        setMovies(data.results);
       } catch (error) {
         console.log(error);
       }
@@ -26,22 +27,27 @@ export default function Movies() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.currentTarget;
+    const form = e.target;
+    if (form.elements.query.value === '') {
+      return setSearchParams({});
+    }
     setSearchParams({ query: form.elements.query.value });
     // form.reset();
-  };  
+  };
 
   return (
-    <div>
+    <div className={css.movies}>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="query" />
-        <button type="submit">Search</button>
-      </form>      
+        <input type="text" name="query" className={css.input}/>
+        <button type="submit" className={css.button}>Search</button>
+      </form>
       {query !== '' && (
         <ul>
           {movies.map(movie => (
             <li key={movie.id}>
-              <Link to={`${movie.id}`} state={{ from: location }}>{movie.title}</Link>
+              <Link to={`${movie.id}`} state={{ from: location }}>
+                {movie.title}
+              </Link>
             </li>
           ))}
         </ul>
@@ -49,5 +55,3 @@ export default function Movies() {
     </div>
   );
 }
-
-// `/movies?query=${query}`

@@ -12,8 +12,7 @@ export default function Cast() {
     async function fetchCast() {
       try {
         const data = await apiService(`/movie/${movieId}/credits`);
-        setActors(data.cast);
-        // console.log(data.cast);
+        setActors(data.cast);        
       } catch (error) {
         console.log(error);
       }
@@ -38,8 +37,7 @@ export default function Cast() {
                 />
               ) : (
                 <FaUserAlt className={css.cast__img} />
-              )}
-              {/* {!actor.profile_path && <FaUserAlt className={css.cast__img} />} */}
+              )}             
               <p>{actor.name}</p>
               <p>Character: {actor.character}</p>
             </li>

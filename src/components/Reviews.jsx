@@ -10,8 +10,7 @@ export default function Reviews() {
     async function fetchReviews() {
       try {
         const data = await apiService(`/movie/${movieId}/reviews`);
-        setReviews(data.results);
-        // console.log(data.results);
+        setReviews(data.results);        
       } catch (error) {
         console.log(error);
       }

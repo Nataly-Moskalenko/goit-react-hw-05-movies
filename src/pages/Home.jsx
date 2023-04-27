@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import apiService from 'services/apiService';
+import css from './Home.module.css';
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
@@ -20,7 +21,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className={css.home}>
       <h1>Tranding today</h1>
       <ul>
         {movies.map(movie => (

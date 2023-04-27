@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import apiService from 'services/apiService';
 import css from './MovieDetails.module.css';
@@ -9,7 +9,7 @@ export default function MovieDetails() {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/';
+  const backLinkLocationRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     async function fetchMovie() {
@@ -25,13 +25,12 @@ export default function MovieDetails() {
   }, [movieId]);
 
   return (
-    <div>
-      <Link to={backLinkHref}>
+    <div className={css.movieDetails}>
+      <Link to={backLinkLocationRef.current} className={css.back}>
         <HiArrowLeft size="12" />
         <span> Go back</span>
       </Link>
       <div className={css.movie}>
-        {/* {movie.poster_path && ( */}
         <img
           className={css.movie__img}
           src={
@@ -43,8 +42,6 @@ export default function MovieDetails() {
           width="185"
           height="278"
         />
-        {/* )}
-        {!movie.poster_path && <img src={image} className={css.movie__img} alt=''/>}         */}
         <div className={css.movie__description}>
           <h1 className={css.movie__title}>{movie.title}</h1>
           <p>Release date: {movie.release_date}</p>
@@ -59,15 +56,17 @@ export default function MovieDetails() {
           </p>
         </div>
       </div>
-      <h3>Additional information</h3>
-      <ul>
-        <li className={css.add}>
-          <Link to="cast">Cast</Link>
-        </li>
-        <li className={css.add}>
-          <Link to="reviews">Reviews</Link>
-        </li>
-      </ul>
+      <div className={css.add}>
+        <h3>Additional information</h3>
+        <ul>
+          <li className={css.add__item}>
+            <Link to="cast">Cast</Link>
+          </li>
+          <li className={css.add__item}>
+            <Link to="reviews">Reviews</Link>
+          </li>
+        </ul>
+      </div>
       <Outlet />
     </div>
   );
