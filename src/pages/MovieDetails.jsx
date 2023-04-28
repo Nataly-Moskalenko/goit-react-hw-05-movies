@@ -3,11 +3,9 @@ import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import apiService from 'services/apiService';
 import css from './MovieDetails.module.css';
 import { HiArrowLeft } from 'react-icons/hi';
-import image from 'movie-597004_640.jpg';
 
 export default function MovieDetails() {
-  const [movie, setMovie] = useState({});
-  // const [poster, setPoster] = useState(null);
+  const [movie, setMovie] = useState({}); 
   const { movieId } = useParams();
   const location = useLocation();
   const backLinkLocationRef = useRef(location.state?.from ?? '/');
@@ -23,11 +21,7 @@ export default function MovieDetails() {
     }
 
     fetchMovie();
-  }, [movieId]);
-
-  // useEffect(() => {
-  //   setPoster(`https://image.tmdb.org/t/p/w185/${movie.poster_path}`);
-  // }, [movie]);
+  }, [movieId]); 
 
   return (
     <div className={css.movieDetails}>
@@ -38,20 +32,14 @@ export default function MovieDetails() {
         </Link>
       </button>
 
-      <div className={css.movie}>
-        <img
+      <div className={css.movie}>        
+        {movie.poster_path && <img
           className={css.movie__img}
-          src={
-            movie.poster_path
-              ? `https://image.tmdb.org/t/p/w185/${movie.poster_path}`
-              : image
-          }
-          // src={poster}
-          // onError={() => setPoster(image)}
+          src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}          
           alt={movie.title}
           width="185"
           height="278"
-        />
+        />}        
         <div className={css.movie__description}>
           <h1 className={css.movie__title}>{movie.title}</h1>
           <p>Release date: {movie.release_date}</p>
