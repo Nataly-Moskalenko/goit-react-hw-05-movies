@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
 import apiService from 'services/apiService';
 import css from './Movies.module.css';
-import image from 'movie-597004_640.jpg';
+import image from '../../images/movie-597004_640.jpg';
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);

@@ -1,4 +1,4 @@
-import image from 'movie-597004_640.jpg';
+import image from '../../images/movie-597004_640.jpg';
 import css from './NotFound.module.css';
 
 export default function NotFound() {
