@@ -1,15 +1,16 @@
 .movies {
   padding: 12px 16px; 
-  text-align: center;   
 }
 
 .form {
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .input,
 .searchButton {
-  outline: none;  
+  outline: none;
+  padding: 4px 8px;
 }
 
 .input:focus,
@@ -24,3 +25,21 @@
 .defaultImage {
   margin: 0 auto;
 }
+
+.movies__list {
+  display: flex;
+  flex-direction: column; 
+  gap: 8px;
+  /* list-style: none; */
+  /* padding: 0;  */
+}
+
+
+.movies__img {
+  margin: 0 auto;
+}
+
+.movies__text {
+  text-align: center;
+}
+

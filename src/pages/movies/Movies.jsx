@@ -56,7 +56,7 @@ export default function Movies() {
         </button>
       </form>
       {query !== '' && movies.length > 0 && (
-        <ul>
+        <ul className={css.movies__list}>
           {movies.map(movie => (
             <li key={movie.id}>
               <Link to={`${movie.id}`} state={{ from: location }}>
@@ -76,8 +76,8 @@ export default function Movies() {
       {query === '' && (
         <div>
           <img src={image} alt="Movie poster" width="480" className={css.defaultImage} />
-          <p>What movies will we search?</p>
-          <p>Please enter your search query.</p>
+          <p className={css.movies__text}>What movies will we search?</p>
+          <p className={css.movies__text}>Please enter your search query.</p>
         </div>
       )}
     </div>
