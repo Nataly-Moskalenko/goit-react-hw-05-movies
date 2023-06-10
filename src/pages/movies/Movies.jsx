@@ -68,14 +68,14 @@ export default function Movies() {
       )}
       {query !== '' && movies.length === 0 && (
         <div>
-          <img src={image} alt="Movie poster" width="320" />
+          <img src={image} alt="Movie poster" width="480" />
           <p>Oops, there are no movies with "{query}".</p>
           <p>Please enter new search query.</p>
         </div>
       )}
       {query === '' && (
         <div>
-          <img src={image} alt="Movie poster" width="320" />
+          <img src={image} alt="Movie poster" width="480" className={css.defaultImage} />
           <p>What movies will we search?</p>
           <p>Please enter your search query.</p>
         </div>

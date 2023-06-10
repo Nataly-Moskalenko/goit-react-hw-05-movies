@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, Suspense } from 'react';
-import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
+import { useParams, NavLink, Outlet, useLocation } from 'react-router-dom';
 import apiService from 'services/apiService';
 import css from './MovieDetails.module.css';
 import { HiArrowLeft } from 'react-icons/hi';
@@ -26,10 +26,10 @@ export default function MovieDetails() {
   return (
     <div className={css.movieDetails}>
       <button type="button" className={css.buttonBack}>
-        <Link to={backLinkLocationRef.current} className={css.back}>
+        <NavLink to={backLinkLocationRef.current} className={css.back}>
           <HiArrowLeft size="12" />
           <span> Go back</span>
-        </Link>
+        </NavLink>
       </button>
 
       <div className={css.movie}>        
@@ -37,8 +37,8 @@ export default function MovieDetails() {
           className={css.movie__img}
           src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}          
           alt={movie.title}
-          width="185"
-          height="278"
+          width="278"
+          height="417"
         />}        
         <div className={css.movie__description}>
           <h1 className={css.movie__title}>{movie.title}</h1>
@@ -55,13 +55,13 @@ export default function MovieDetails() {
         </div>
       </div>
       <div className={css.add}>
-        <h3 className={css.movie__title}>Additional information</h3>
-        <ul>
+        <h3 className={css.add__title}>Additional information</h3>
+        <ul className={css.add__list}>
           <li className={css.add__item}>
-            <Link to="cast">Cast</Link>
+            <NavLink to="cast" className={css.link}>Cast</NavLink>
           </li>
           <li className={css.add__item}>
-            <Link to="reviews">Reviews</Link>
+            <NavLink to="reviews" className={css.link}>Reviews</NavLink>
           </li>
         </ul>
       </div>

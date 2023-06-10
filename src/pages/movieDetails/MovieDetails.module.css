@@ -5,10 +5,18 @@
 .buttonBack {
   border-radius: 4px;
   border: 1px solid rgb(128, 128, 128, 0.3);
+  margin: 12px;
+  padding: 4px 8px;
 }
 
 .back {
-  text-decoration: none;
+  text-decoration: none; 
+}
+
+.back:active,
+.back:hover{
+  font-weight: 700;
+  color: #28048d; 
 }
 
 .movie {
@@ -35,4 +43,34 @@
 
 .add__item:first-child {
   margin-bottom: 4px;
+}
+
+.movie__img {
+  width: 278px;
+  height: 417px;
+}
+
+.link {
+  text-decoration: none;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #373737;
+}
+
+.link:hover {
+  color: #28048d;
+  font-weight: 700;
+}
+
+.add__list {
+  list-style: none;
+  display: flex;
+  gap: 60px;
+  padding: 0;
+  justify-content: center;
+}
+.add__title {
+ text-align: center;
 }
