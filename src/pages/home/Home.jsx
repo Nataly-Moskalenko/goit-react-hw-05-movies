@@ -32,18 +32,21 @@ export default function Home() {
                 state={{ from: location }}
                 className={css.link}
               >
-                {movie.poster_path && (
+                {movie.poster_path ? (
                   <img
                     className={css.home__img}
                     src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}
                     alt={movie.title}
                     width="220"
-                    // height="308"
                   />
-                )}                
-              </NavLink>              
+                ) : (
+                  <p className={css.home__descr}>
+                    Sorry, there is no poster for this movie{' '}
+                    <b>{movie.title}</b>.
+                  </p>
+                )}
+              </NavLink>
             </div>
-            <p>{movie.title}</p>
           </li>
         ))}
       </ul>
